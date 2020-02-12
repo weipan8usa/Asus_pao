@@ -1,0 +1,5 @@
+at $(perl ~/pao/sunset.pl|awk -FT '{print $2}'|awk -F: '{print $1":"$2}')
+warning: commands will be executed using /bin/sh
+at> sudo zmu -m 1 -D
+at> <EOT>
+
