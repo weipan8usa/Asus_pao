@@ -3,3 +3,7 @@ vlc -vvv v4l2:// :v4l-vdev="/dev/video0" :v4l-adev="/dev/pcm"  --sout '#transcod
 vlc -vvv v4l2:// :input-slave=alsa:// :v4l-vdev="/dev/video0"  --sout '#transcode{vcodec=h264,acodec=mpga,ab=128,channels=2,samplerate=44100,scodec=none}:rtp{sdp=rtsp://:8554/}'
 #limit fps and size
 vlc -vvv v4l2:///dev/video0:width=640:height=480  --sout '#transcode{vcodec=h264,acodec=mpga,fps=10,ab=128,channels=2,samplerate=44100,scodec=none}:rtp{sdp=rtsp://:8554/}'
+
+
+v4l2-ctl --list-formats-ext -d /dev/video0
+v4l2-ctl --list-devices
