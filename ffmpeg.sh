@@ -60,6 +60,7 @@ ffplay -vf "crop=in_w/3:in_h:in_w/3:in_h" VID_20161218_171215.mp4
 ffmpeg -i VID_20161218_171215.mp4 -vf "crop=in_w:in_h/3:in_w:in_h/3" VID_20161218_171215_normal.mp4
 ffmpeg -i title00.mkv -vf "crop=in_w*3/4:in_h:in_w/8:in_h,yadif"  -c:a copy KarajanMozartDvorak.mkv # Crop from 16:9 to 4:3 + progressive
 ffplay -vf "crop=640:360:0:120" EntfuhrungAusDemSerail_Mozart_chapter_24NHD.mp4 #cut into 16x9 from 4x3 align on bottom
+ffmpeg -i Saioa-Stiffelio640x480.mp4 -vf "crop=640:360:0:60" Saioa-Stiffelio640x360.mp4
 ffplay -vf "transpose=1" VID_20161218_171215.mp4 #transpose=1 90clockwise
 ffmpeg -i chapter_14_Come_Scoglio_R.mp4 -vf scale=240x426,setsar=1:1 chapter_14_Come_Scoglio_R_9x16.mp4 # make solid aspective not magified. 
 ffmpeg -i chapter_14_Come_Scoglio_R.mp4 -vf scale=240x426,setdar=0,setsar=0 chapter_14_Come_Scoglio_R_1.mp4 # remove dar and sar info but can't reverse the sequence.
