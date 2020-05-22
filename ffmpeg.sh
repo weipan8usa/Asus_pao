@@ -98,3 +98,4 @@ ffmpeg -ss 00:25:33 -i ~/z/Original/ForzaDelDestino_VerdiTebaldiCorelli/title_t0
 
 #ffmpeg -i 淮海路商业街景\ \ 上海淮海中路\ 淮海西路\ 4K\ Shanghai\ Huaihai\ Road\ Commercial\ Street\ View--aFm0tv9mSw.mp3 -i 淮海路商业街景\ \ 上海淮海中路\ 淮海西路\ 4K\ Shanghai\ Huaihai\ Road\ Commercial\ Street\ View--aFm0tv9mSw_1.mp3 -filter_complex amerge=inputs=2 -ac 2 output.mp3 #mix two audio files
 
+#ffmpeg -i lEDJRHkBOwY_short.mp4 -i blank.jpg -filter_complex "[0:v][1:v] overlay=25:25:enable='between(t,0,20)'" -pix_fmt yuv420p -c:a copy lEDJRHkBOwY_short_blank.mp4
