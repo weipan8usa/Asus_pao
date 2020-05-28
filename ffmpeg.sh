@@ -100,4 +100,16 @@ ffmpeg -ss 00:25:33 -i ~/z/Original/ForzaDelDestino_VerdiTebaldiCorelli/title_t0
 
 #ffmpeg -i lEDJRHkBOwY_short.mp4 -i blank.jpg -filter_complex "[0:v][1:v] overlay=25:25:enable='between(t,0,20)'" -pix_fmt yuv420p -c:a copy lEDJRHkBOwY_short_blank.mp4
 #ffmpeg -i Puritani_Netrebko_chapter_31NHD.mp4 -i Puritani_Netrebko_chapter_31hqvga.mp4 -filter_complex "[1:v]setpts=PTS-10/TB[a];[0:v][a]overlay=enable=gte(t\,5):shortest=1[out]" -map [out] -map 0:a -c:v libx264 -crf 18 -pix_fmt yuv420p -c:a copy output.mp4 # video overlay not very convienant 
-
+#ffmpeg -i chapter_17NHD.mp4 -i chapter_18NHD.mp4 -i chapter_19NHD.mp4 -i chapter_20NHD.mp4 \
+  -filter_complex " \
+	    nullsrc=size=640x360 [base]; \ 
+	    [0:v] setpts=PTS-STARTPTS, scale=320x180 [upperleft]; \
+			[1:v] setpts=PTS-STARTPTS, scale=320x180 [upperright]; \
+			[2:v] setpts=PTS-STARTPTS, scale=320x180 [lowerleft]; \ 
+			[3:v] setpts=PTS-STARTPTS, scale=320x180 [lowerright]; \
+			[base][upperleft] overlay=shortest=1 [tmp1]; \
+			[tmp1][upperright] overlay=shortest=1:x=320 [tmp2]; \
+			[tmp2][lowerleft] overlay=shortest=1:y=180 [tmp3]; \ 
+			[tmp3][lowerright] overlay=shortest=1:x=320:y=180 \
+			" \
+			-c:v libx264 output.mkv # video in video
