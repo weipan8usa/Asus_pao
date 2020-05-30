@@ -112,4 +112,31 @@ ffmpeg -ss 00:25:33 -i ~/z/Original/ForzaDelDestino_VerdiTebaldiCorelli/title_t0
 			[tmp2][lowerleft] overlay=shortest=1:y=180 [tmp3]; \ 
 			[tmp3][lowerright] overlay=shortest=1:x=320:y=180 \
 			" \
-			-c:v libx264 output.mkv # video in video
+			-c:v libx264 output.mkv # video in video 
+#ffmpeg -i chapter_17NHD.mp4 -i chapter_18NHD.mp4 -i chapter_19NHD.mp4 -i chapter_20NHD.mp4 \
+  -filter_complex " \
+	  nullsrc=size=640x360 [base]; \
+		[0:v] setpts=PTS-STARTPTS, scale=320x180 [upperleft]; \
+		[1:v] setpts=PTS-STARTPTS, scale=320x180 [upperright]; \ 
+		[2:v] setpts=PTS-STARTPTS, scale=320x180 [lowerleft]; \
+		[3:v] setpts=PTS-STARTPTS, scale=320x180 [lowerright]; \ 
+		[base][upperleft] overlay=shortest=1 [tmp1]; \ 
+		[tmp1][upperright] overlay=shortest=1:x=320:enable='between(t,0,20)' [tmp2]; \
+		[tmp2][lowerleft] overlay=shortest=1:y=180 [tmp3]; \
+		[tmp3][lowerright] overlay=shortest=1:x=320:y=180
+	  " \
+	  -c:v libx264 output6.mp4
+
+#ffmpeg -i chapter_17NHD.mp4 -i chapter_18NHD.mp4 -i chapter_19NHD.mp4 -i chapter_20NHD.mp4 \
+  -filter_complex " \
+	  nullsrc=size=640x360 [base]; \
+		[0:v] setpts=PTS-STARTPTS, scale=640x360 [upperleft]; \
+		[1:v] setpts=PTS-STARTPTS, scale=320x180 [upperright]; \
+		[2:v] setpts=PTS-STARTPTS, scale=320x180 [lowerleft]; \
+		[3:v] setpts=PTS-STARTPTS, scale=320x180 [lowerright]; \
+		[base][upperleft] overlay=shortest=1 [tmp1]; \
+		[tmp1][upperright] overlay=shortest=1:x=320:enable='between(t,0,20)' [tmp2]; \
+		[tmp2][lowerleft] overlay=shortest=1:y=180:enable='between(t,30,60)' [tmp3]; \
+		[tmp3][lowerright] overlay=shortest=1:x=320:y=180:enable='between(t,80,100)' \
+		" \
+		-c:v libx264 output8.mp4
