@@ -142,7 +142,7 @@ ffmpeg -ss 00:25:33 -i ~/z/Original/ForzaDelDestino_VerdiTebaldiCorelli/title_t0
 		-c:v libx264 output8.mp4
 
 #ffmpeg -i EugeneOnegin_Tchaikovsky_chapter_22NHD.mp4 -i EugeneOnegin_Tchaikovsky_chapter_05NHD.mp4 -filter_complex " \
-nullsrc=size=640x360 [base]; \
+nullsrc=size=640x480 [base]; \
 [0:v] setpts=PTS-STARTPTS, scale=640x480 [upperleft]; \
 [1:v] setpts=PTS-STARTPTS, scale=320x240 [upperright]; \
 [base][upperleft] overlay=shortest=1 [tmp1]; \
