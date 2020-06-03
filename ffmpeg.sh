@@ -149,3 +149,11 @@ nullsrc=size=640x480 [base]; \
 [tmp1][upperright] overlay=shortest=0:x=320:enable='between(t,0,20)' \
 "  -c:v libx264 output9.mp4 # 1. two video not four. 2. shortest apply to 0:v not 1:v
 
+#ffmpeg -i DIE_ZAUBERFLOETE_chapter_13NHD_1.mp4 -i 成龙1.jpg -filter_complex " \
+nullsrc=size=640x360 [base]; \
+[0:v] setpts=PTS-STARTPTS, scale=640x360 [upperleft]; \
+[1:v] setpts=PTS-STARTPTS, scale=133x100 [upperright]; \
+[base][upperleft] overlay=shortest=1 [tmp1]; \
+[tmp1][upperright] overlay=shortest=0:x=500:y=10:enable='between(t,0,20)' \
+"  -c:v libx264 DIE_ZAUBERFLOETE_chapter_13NHD_1_output9.mp4
+
