@@ -167,3 +167,14 @@ nullsrc=size=640x360 [base]; \
 [tmp2][upperright1] overlay=shortest=0:x=500:y=10:enable='between(t,0,40)' \
 "  -c:v libx264 DIE_ZAUBERFLOETE_chapter_13NHD_1_output9.mp4
 
+ffmpeg -i DIE_ZAUBERFLOETE_chapter_13NHD_1.mp4 -i 成龙1.jpg -i 成龙2.jpg -i  成龙1.jpg  -filter_complex " \
+nullsrc=size=640x360 [base]; \
+[0:v] setpts=PTS-STARTPTS, scale=640x360 [upperleft]; \
+[1:v] setpts=PTS-STARTPTS, scale=133x100 [upperright]; \
+[2:v] setpts=PTS-STARTPTS, scale=133x20 [upperright1]; \
+[3:v] setpts=PTS-STARTPTS, scale=133x100 [upperleft1]; \
+[base][upperleft] overlay=shortest=1 [tmp1]; \
+[tmp1][upperright] overlay=shortest=0:x=500:y=10:enable='between(t,40,82)' [tmp2]; \
+[tmp2][upperright1] overlay=shortest=0:x=500:y=10:enable='between(t,0,40)' [tmp3]; \
+[tmp3][upperleft1] overlay=shortest=0:x=10:y=10:enable='between(t,0,2)'  \
+"  -c:v libx264 DIE_ZAUBERFLOETE_chapter_13NHD_1_output9.mp4
