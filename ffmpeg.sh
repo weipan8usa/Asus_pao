@@ -178,3 +178,5 @@ nullsrc=size=640x360 [base]; \
 [tmp2][upperright1] overlay=shortest=0:x=500:y=10:enable='between(t,0,40)' [tmp3]; \
 [tmp3][upperleft1] overlay=shortest=0:x=10:y=10:enable='between(t,0,2)'  \
 "  -c:v libx264 DIE_ZAUBERFLOETE_chapter_13NHD_1_output9.mp4
+
+#duration=21;ffmpeg -i Saioa-Stiffelio.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='%{eif\:$duration-t\:d}': fontcolor=white: fontsize=10: box=1: boxcolor=black: boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2" -codec:a copy Saioa-Stiffelio_test.mp4
