@@ -182,3 +182,5 @@ nullsrc=size=640x360 [base]; \
 #duration=21;ffmpeg -i Saioa-Stiffelio.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='%{eif\:$duration-t\:d}': fontcolor=white: fontsize=10: box=1: boxcolor=black: boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2" -codec:a copy Saioa-Stiffelio_test.mp4 #Counting down
 #ffmpeg -i Saioa-Stiffelio.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='Timestamp\: %{pts\:gmtime\:0\:%M\\\\\:%S}.': fontcolor=white: fontsize=10: box=1: boxcolor=black: boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2" -codec:a copy Saioa-Stiffelio_test.mp4 #Count UP
 
+#ffmpeg -i Saioa-Stiffelio.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='Silence Time In Seconds\: %{pts\:gmtime\:0\:%M\\\\\:%S}.': fontcolor=white: fontsize=15: box=1: boxcolor=black: boxborderw=5: x=400: y=10:enable=gte(t\,5)" -codec:a copy Saioa-Stiffelio_test.mp4 # enable from 5 seconds
+
