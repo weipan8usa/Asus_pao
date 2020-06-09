@@ -184,3 +184,4 @@ nullsrc=size=640x360 [base]; \
 
 #ffmpeg -i Saioa-Stiffelio.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='Silence Time In Seconds\: %{pts\:gmtime\:0\:%M\\\\\:%S}.': fontcolor=white: fontsize=15: box=1: boxcolor=black: boxborderw=5: x=400: y=10:enable=gte(t\,5)" -codec:a copy Saioa-Stiffelio_test.mp4 # enable from 5 seconds
 
+#ffmpeg -i Trudeau\ silent\ for\ 21\ seconds\ after\ question\ about\ Trump\'s\ response\ to\ protesters-sjhF1GI9n8A.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='Silence Time In Seconds\: %{pts\:gmtime\:-16\:%M\\\\\:%S}.': fontcolor=white: fontsize=15: box=1: boxcolor=black: boxborderw=5: x=400: y=10:enable='between(t\,17,38)'" -codec:a copy Trudeau\ silent\ for\ 21\ seconds\ after\ question\ about\ Trump\'s\ response\ to\ protesters-sjhF1GI9n8A_withTImeStamp.mp4 # time start from negative 
