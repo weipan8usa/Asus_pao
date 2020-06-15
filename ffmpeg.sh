@@ -149,6 +149,24 @@ nullsrc=size=640x480 [base]; \
 [tmp1][upperright] overlay=shortest=0:x=320:enable='between(t,0,20)' \
 "  -c:v libx264 output9.mp4 # 1. two video not four. 2. shortest apply to 0:v not 1:v
 
+#ffmpeg -i EugeneOnegin_Tchaikovsky_chapter_22NHD.mp4 -i EugeneOnegin_Tchaikovsky_chapter_05NHD.mp4 -t 60 -filter_complex " \
+nullsrc=size=640x480 [base]; \
+[0:v] setpts=PTS-STARTPTS, scale=640x480 [main]; \
+[1:v] setpts=PTS-15/TB, scale=159x120 [sub1]; \
+[base][main] overlay=shortest=1 [overlap1]; \
+[overlap1][sub1] overlay=shortest=0:x=320:y=20:enable='between(t,0,20)' \
+"  -c:v libx264 output11.mp4 #[1:v] discard first 15 seconds
+
+#ffmpeg -i EugeneOnegin_Tchaikovsky_chapter_22NHD.mp4 -i EugeneOnegin_Tchaikovsky_chapter_05NHD.mp4 -t 60 -filter_complex " \
+nullsrc=size=640x480 [base]; \
+[0:v] setpts=PTS-STARTPTS, scale=640x480 [main]; \
+[1:v] setpts=PTS+15/TB, scale=159x120 [sub1]; \
+[base][main] overlay=shortest=1 [overlap1]; \
+[overlap1][sub1] overlay=shortest=0:x=320:y=20:enable='between(t,0,20)' \
+"  -c:v libx264 output11.mp4 # start from -15 second(first 15 second is null)
+
+
+
 #ffmpeg -i DIE_ZAUBERFLOETE_chapter_13NHD_1.mp4 -i 成龙1.jpg -filter_complex " \
 nullsrc=size=640x360 [base]; \
 [0:v] setpts=PTS-STARTPTS, scale=640x360 [upperleft]; \
@@ -187,3 +205,4 @@ nullsrc=size=640x360 [base]; \
 #ffmpeg -i Trudeau\ silent\ for\ 21\ seconds\ after\ question\ about\ Trump\'s\ response\ to\ protesters-sjhF1GI9n8A.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='Silence Time In Seconds\: %{pts\:gmtime\:-16\:%M\\\\\:%S}.': fontcolor=white: fontsize=15: box=1: boxcolor=black: boxborderw=5: x=400: y=10:enable='between(t\,17,38)'" -codec:a copy Trudeau\ silent\ for\ 21\ seconds\ after\ question\ about\ Trump\'s\ response\ to\ protesters-sjhF1GI9n8A_withTImeStamp.mp4 # time start from negative 
 #ffmpeg -i OMNI2202006102100A_youngerCovit19.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='年轻人的新冠确诊比例大幅上升': fontcolor=white: fontsize=15: box=1: boxcolor=black: boxborderw=5: x=400: y=10:enable='between(t\,0,58)'" -codec:a copy OMNI2202006102100A_youngerCovit19-1.mp4
 #ffmpeg -i Trudeau\ silent\ for\ 21\ seconds\ after\ question\ about\ Trump\'s\ response\ to\ protesters-sjhF1GI9n8A_loop.mp4  -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
+
