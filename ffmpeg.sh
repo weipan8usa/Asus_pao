@@ -206,3 +206,14 @@ nullsrc=size=640x360 [base]; \
 #ffmpeg -i OMNI2202006102100A_youngerCovit19.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='年轻人的新冠确诊比例大幅上升': fontcolor=white: fontsize=15: box=1: boxcolor=black: boxborderw=5: x=400: y=10:enable='between(t\,0,58)'" -codec:a copy OMNI2202006102100A_youngerCovit19-1.mp4
 #ffmpeg -i Trudeau\ silent\ for\ 21\ seconds\ after\ question\ about\ Trump\'s\ response\ to\ protesters-sjhF1GI9n8A_loop.mp4  -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
 
+ffmpeg -i 睡前消息129：砸哥伦布雕像，No！砸丘吉尔雕像，Yes！-5I2flhWNdcY_WinstonChurchill.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='丘吉尔和中国': fontcolor=white: fontsize=25: box=1: boxcolor=black: boxborderw=5: x=10: y=10:enable='between(t\,0,58)'" -codec:a copy 睡前消息129：砸哥伦布雕像，No！砸丘吉尔雕像，Yes！-5I2flhWNdcY_WinstonChurchill1.mp4
+
+## mix picture and text in one command 
+#ffmpeg -i Creation_HaydnBernstein_chapter_29NHD.mp4 -i index.jpg -filter_complex " \
+nullsrc=size=640x480 [base]; \
+[0:v] setpts=PTS-STARTPTS, scale=640x480 [upperleft]; \
+[1:v] setpts=PTS-STARTPTS, scale=100x112 [upperright]; \
+[base][upperleft] overlay=shortest=1,drawtext=fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='丘吉尔和中国': fontcolor=white: fontsize=25: box=1: boxcolor=black: boxborderw=5: x=10: y=10:enable='between(t\,0,58)' [tmp1]; \
+[tmp1][upperright] overlay=shortest=0:x=520:y=20:enable='between(t,0,20)' \
+"  xyz.mp4
+
