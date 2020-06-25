@@ -225,3 +225,5 @@ nullsrc=size=640x360 [base]; \
 [tmp1][upperright] overlay=shortest=0:x=545:y=5:enable='between(t,0,20)' \
 "  巧克力_chapter_03NDH_02-title.mp4 # repeat text in same pane
 
+ffmpeg -i Fantasia\ on\ Greensleeves-\ Katha\ Zinn\,\ violin\;\ Illya\ Filshtinskiy\,\ piano-7QHjZsBTysQ.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='https\:\/\/www.youtube.com\/watch?v=7QHjZsBTysQ': fontcolor=white: fontsize=15: box=1: boxcolor=black: boxborderw=5: x=10: y=340:enable='between(t\,240,268.12)'",drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='苏格兰民谣 绿袖子': fontcolor=white: fontsize=20: box=1: boxcolor=black: boxborderw=5: x=470: y=10:enable='between(t\,0,58)'" Fantasia\ on\ Greensleeves-\ Katha\ Zinn\,\ violin\;\ Illya\ Filshtinskiy\,\ piano-7QHjZsBTysQ_title.mp4 # two text in one line command
+
