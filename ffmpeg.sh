@@ -217,3 +217,11 @@ nullsrc=size=640x480 [base]; \
 [tmp1][upperright] overlay=shortest=0:x=520:y=20:enable='between(t,0,20)' \
 "  xyz.mp4
 
+ffmpeg -i Charpt_03NDH_02-1.mp4 -i index.jpe -filter_complex " \
+nullsrc=size=640x360 [base]; \
+[0:v] setpts=PTS-STARTPTS, scale=640x360 [upperleft]; \
+[1:v] setpts=PTS-STARTPTS, scale=100x100 [upperright]; \
+[base][upperleft] overlay=shortest=1,drawtext=fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='勾引女孩要用巧克力，几百年前就这样': fontcolor=white: fontsize=25: box=1: boxcolor=black: boxborderw=5: x=10: y=10:enable='between(t\,0,15)',drawtext=fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='巧克力': fontcolor=white: fontsize=25: box=1: boxcolor=black: boxborderw=5: x=290:y=90:enable='between(t\,20,22)' [tmp1]; \
+[tmp1][upperright] overlay=shortest=0:x=545:y=5:enable='between(t,0,20)' \
+"  巧克力_chapter_03NDH_02-title.mp4 # repeat text in same pane
+
