@@ -1,0 +1,1 @@
+readpst -o . -M -u -w -e -b main.pst
