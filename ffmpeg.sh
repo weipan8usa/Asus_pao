@@ -231,3 +231,7 @@ ffmpeg -i Fantasia\ on\ Greensleeves-\ Katha\ Zinn\,\ violin\;\ Illya\ Filshtins
 
 #ffmpeg -i FigroFrani_chapter_52NHD.mp4 -vf "format=yuv420p,drawbox=y=ih/PHI:color=black@0.4:width=iw:height=48:t=fill,drawtext=fontfile=/usr/share/kodi/media/Fonts/arial.ttf:text='Title of this Video':fontcolor=white:fontsize=24:x=(w-tw)/2:y=(h/PHI)+th,format=yuv420p" FigroFrani_chapter_52NHD-2.mp4
 #ffmpeg -ss 04:11:28 -i Maria\ Callas\ -\ 50\ Most\ Beautiful\ Opera\ Arias-1iwGIBewHPM.webm -metadata title="Turandot, Act I:\"Signore, ascolta\!\" (Liù)" -vol 256 -map 0:1 -b:a 192k -ac 2 50_callas.mp3
+#ffmpeg -i 文革电影系列\ 【战洪图】\ 1973年\ 中国经典怀旧电影\ Chinese\ classical\ HD-7bHJS0mQuIE_七七四十九天_text_640x480.mp4 -lavfi '[0:v]scale=ih*16/9:-1,boxblur=luma_radius=min(h\,w)/20:luma_power=1:chroma_radius=min(cw\,ch)/20:chroma_power=1[bg];[bg][0:v]overlay=(W-w)/2:(H-h)/2,crop=h=iw*9/16' out_horizontal.mp4
+
+#ffmpeg -i 文革电影系列\ 【战洪图】\ 1973年\ 中国经典怀旧电影\ Chinese\ classical\ HD-7bHJS0mQuIE_七七四十九天_text_640x480.mp4 -lavfi "[0:v]scale=256/100*iw:256/100*ih,boxblur=luma_radius=min(h\,w)/40:luma_power=3:chroma_radius=min(cw\,ch)/40:chroma_power=1[bg];[bg][0:v]overlay=(W-w)/2:(H-h)/2,setsar=1,crop=w=iw*100/256" 文革电影系列\ 【战洪图】\ 1973年\ 中国经典怀旧电影\ Chinese\ classical\ HD-7bHJS0mQuIE_七七四十九天_text_vertical_100x256.mp4 #vertical blurr sides
+
