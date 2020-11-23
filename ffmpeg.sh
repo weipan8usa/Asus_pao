@@ -235,3 +235,7 @@ ffmpeg -i Fantasia\ on\ Greensleeves-\ Katha\ Zinn\,\ violin\;\ Illya\ Filshtins
 
 #ffmpeg -i 文革电影系列\ 【战洪图】\ 1973年\ 中国经典怀旧电影\ Chinese\ classical\ HD-7bHJS0mQuIE_七七四十九天_text_640x480.mp4 -lavfi "[0:v]scale=256/100*iw:256/100*ih,boxblur=luma_radius=min(h\,w)/40:luma_power=3:chroma_radius=min(cw\,ch)/40:chroma_power=1[bg];[bg][0:v]overlay=(W-w)/2:(H-h)/2,setsar=1,crop=w=iw*100/256" 文革电影系列\ 【战洪图】\ 1973年\ 中国经典怀旧电影\ Chinese\ classical\ HD-7bHJS0mQuIE_七七四十九天_text_vertical_100x256.mp4 #vertical blurr sides
 
+fmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -i fuqi.mp4 -c:v copy -c:a aac -shortest fuqi1.mp4 # add silent into a non audio mp4
+
+ffmpeg -f lavfi -i anullsrc=channel_layout=5.1:sample_rate=48000 -t 1 silence.ac3 # create 1 sec silent audio
+
