@@ -1,0 +1,2 @@
+find . -path ~/z -prune -o -name tesseract.sh -type f
+

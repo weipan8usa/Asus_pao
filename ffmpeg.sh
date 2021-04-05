@@ -208,6 +208,9 @@ nullsrc=size=640x360 [base]; \
 ffmpeg -i 中印边界冲突中国或成最大输家_【岩论】-XlHjBmLBie8-01.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='中国或成最大输家': fontcolor=white: fontsize=25: box=1: boxcolor=black: boxborderw=5: x=420: y=10:enable='between(t\,0,58)'",drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='中 印边界冲突': fontcolor=white: fontsize=25: box=1: boxcolor=black: boxborderw=5: x=20: y=10:enable='between(t\,0,58)'"  中印边界冲突中国或成最大输家_【岩论】-XlHjBmLBie8-01_text.mp4
 #ffmpeg -i Trudeau\ silent\ for\ 21\ seconds\ after\ question\ about\ Trump\'s\ response\ to\ protesters-sjhF1GI9n8A_loop.mp4  -vf "fps=10,scale=320:-1:flags=lanczos" -c:v pam -f image2pipe - | convert -delay 10 - -loop 0 -layers optimize output.gif
 
+#ffmpeg -i Giovanni_MozartFurtwangler_chapter_06NHD_640x480_short.mp4 -r 15 -vf scale=512:-1 -ss 3:47 -t 6 ThankU6.gif
+
+
 ffmpeg -i 睡前消息129：砸哥伦布雕像，No！砸丘吉尔雕像，Yes！-5I2flhWNdcY_WinstonChurchill.mp4 -vf drawtext="fontfile=/usr/share/kodi/media/Fonts/arial.ttf: text='丘吉尔和中国': fontcolor=white: fontsize=25: box=1: boxcolor=black: boxborderw=5: x=10: y=10:enable='between(t\,0,58)'" -codec:a copy 睡前消息129：砸哥伦布雕像，No！砸丘吉尔雕像，Yes！-5I2flhWNdcY_WinstonChurchill1.mp4
 
 ## mix picture and text in one command 
@@ -238,4 +241,8 @@ ffmpeg -i Fantasia\ on\ Greensleeves-\ Katha\ Zinn\,\ violin\;\ Illya\ Filshtins
 fmpeg -f lavfi -i anullsrc=channel_layout=stereo:sample_rate=44100 -i fuqi.mp4 -c:v copy -c:a aac -shortest fuqi1.mp4 # add silent into a non audio mp4
 
 ffmpeg -f lavfi -i anullsrc=channel_layout=5.1:sample_rate=48000 -t 1 silence.ac3 # create 1 sec silent audio
+ffmpeg -i Nabucco_VerdiSaioaHernandez_chapter_25NHD.mp4 -vf fade=in:0:500 Nabucco_VerdiSaioaHernandez_chapter_25NHD_fadein.mp4 # from dark into normal
+ffmpeg -i Nabucco_VerdiSaioaHernandez_chapter_25NHD.mp4 -vf hue=s=0 Nabucco_VerdiSaioaHernandez_chapter_25NHD_blackWhite.mp4 # change to black white
+
+ffmpeg -i A.webm -f wav B.wav
 
