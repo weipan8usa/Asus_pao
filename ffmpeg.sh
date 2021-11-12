@@ -247,3 +247,4 @@ ffmpeg -i Nabucco_VerdiSaioaHernandez_chapter_25NHD.mp4 -vf hue=s=0 Nabucco_Verd
 ffmpeg -i A.webm -f wav B.wav
 
 #ffmpeg -i landscape2.mp4 -vf  rotate=30*PI/180 landscape2.2.mp4 # rotate video 30 degree
+#ffmpeg -loop 1 -i landscape2.jpg -c:v libx264 -t 15 -pix_fmt yuv420p -vf scale=1280:854 landscape2.mp4
