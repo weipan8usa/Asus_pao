@@ -248,3 +248,5 @@ ffmpeg -i A.webm -f wav B.wav
 
 #ffmpeg -i landscape2.mp4 -vf  rotate=30*PI/180 landscape2.2.mp4 # rotate video 30 degree
 #ffmpeg -loop 1 -i landscape2.jpg -c:v libx264 -t 15 -pix_fmt yuv420p -vf scale=1280:854 landscape2.mp4
+#ffmpeg -i EugeneOnegin_Tchaikovsky_chapter_05NHD.mp4 -vf "format=yuv420p,drawbox=y=ih/PHI:color=black@0.2:width=iw:height=48:t=fill:enable='between(t,0,20)',drawtext=fontfile=/home/blk161/DVD/bin/HanyiSentyPailouArch.ttf:text='年 轻 人 谈 恋 爱':fontcolor=white:fontsize=24:x=(w-tw)/2:y=(h/PHI)+th/2:enable='between(t,0,20)'" EugeneOnegin_Tchaikovsky_chapter_05NHD_text.mp4
+
