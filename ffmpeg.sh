@@ -269,8 +269,8 @@ srt file format
 哲学
 ////
 ffmpeg -i a.mp4 -vf subtitles='subtitle.srt'  mysubtitledmovie.mp4
+ffmpeg -i Why\ Socrates\ Hated\ Democracy-fLJBzhcSWTk.mp4 -vf subtitles='Why Socrates Hated Democracy-fLJBzhcSWTk.zh-CN.srt:force_style=Fontsize=48'  mysubtitledmovie48.mp4
 
 OR 
 1 ffmpeg -i mysubtitles.srt mysubtitle.ass
 2 ffmpeg -i a.mp4 -vf ass=mysubtitle.ass  mysubtitledmovie1.mp4
-
