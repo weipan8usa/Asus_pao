@@ -260,6 +260,8 @@ ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -ss 0 -i MagicFlute_Hua
 
 #ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -ss 0 -i Track16.mp4 -vf "fps=10,format=yuv420p,drawtext=fontfile=/home/blk161/DVD/bin/HanyiSentyPailouArch.ttf:text='上海老克勒都在看':fontcolor=white:fontsize=79:x=(1920-60*mod(t\,1920/60)-tw):y=th/4:enable='between(t,0,4000)'" -s nhd -preset veryslow -crf 23 -x264-params ref=4 -ac 2 -acodec libfdk_aac -vol 256 -movflags +faststart Track16_text5.mp4 # come into from right 
 
+ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -ss 0 -i A.mp4 -vf "fps=10,format=yuv420p,drawtext=fontfile=/home/blk161/DVD/bin/HanyiSentyPailouArch.ttf:text='看看加州验房验什么':fontcolor=white:fontsize=26:x=640-tw:y=th/4:enable='between(t,0,4)'" -s nhd -preset veryslow -crf 23 -x264-params ref=4 -ac 2 -acodec libfdk_aac -vol 256 -movflags +faststart A_text.mp4
+
 #ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -ss 0 -i Track16.mp4 -vf "fps=10,format=yuv420p,drawtext=fontfile=/home/blk161/DVD/bin/HanyiSentyPailouArch.ttf:text='上海老克勒都在看':fontcolor=white:fontsize=79:x=(1920-60*mod(t\,(1920+tw)/60)):y=th/4" -s nhd -preset veryslow -crf 23 -x264-params ref=4 -ac 2 -acodec libfdk_aac -vol 256 -movflags +faststart Track16_text5.mp4 # come into from right. two 1920=video with dots, two 60=time it decides banner speed.
 
 srt file format 
@@ -274,3 +276,5 @@ ffmpeg -i Why\ Socrates\ Hated\ Democracy-fLJBzhcSWTk.mp4 -vf subtitles='Why Soc
 OR 
 1 ffmpeg -i mysubtitles.srt mysubtitle.ass
 2 ffmpeg -i a.mp4 -vf ass=mysubtitle.ass  mysubtitledmovie1.mp4
+ffmpeg -i A.mp4 -vf "subtitles=B.srt:force_style='Alignment=6,Fontsize=12,outline=0'" C.mp4 
+
