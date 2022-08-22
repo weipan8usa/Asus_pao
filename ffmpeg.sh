@@ -250,6 +250,10 @@ ffmpeg -i A.webm -f wav B.wav
 #ffmpeg -loop 1 -i landscape2.jpg -c:v libx264 -t 15 -pix_fmt yuv420p -vf scale=1280:854 landscape2.mp4
 
 #ffmpeg -loop 1 -framerate 30 -i 'Is Organic Really Better Healthy Food or Trendy Scam-8PmM6SUn7Es.jpg' -i "'Milk. White Poison or Healthy Drink-oakWgLqCwUc_final.mp4'" -t 1 -s 640x380  -map 0:0 -c:v libx264 -map 1:1 -c:a aac -shortest 'Is Organic Really Better Healthy Food or Trendy Scam-8PmM6SUn7Es.mp4'
+=========
+#ffmpeg -loop 1 -i s.jpg -i  any.mp4 -t 0.5 -vf  "drawtext=fontfile=/home/blk161/DVD/bin/simhei.ttf:text='Word you want be on Cover':fontcolor=white:fontsize=24:x=(w-tw-th/5):y=th/4:enable='between(t,0,360)'" -map 0:0 -c:v  libx264 -s 640x360 -r 29.97 -map 1:1 -c:a aac -vol 0 -shortest cover.mp4
+#ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -i '難怪酒店的扣肉那麼好吃，原來訣竅這麼簡單，學會了給家人露一手【一画美食】#扣肉 #扣肉食譜 #扣肉料理-v13e3bL0_yA.mp4' -vf  "drawtext=fontfile=/home/blk161/DVD/bin/simhei.ttf:text='':fontcolor=white:fontsize=24:x=(w-tw-th/5):y=th/4:enable='between(t,0,360)'" -map 0:0 -c:v  libx264 -s 640x360 -r 29.97 -map 0:1 -c:a aac -vol 256  1st_sync.mp4
+==========
 
 #ffmpeg -i EugeneOnegin_Tchaikovsky_chapter_05NHD.mp4 -vf "format=yuv420p,drawbox=y=ih/PHI:color=black@0.2:width=iw:height=48:t=fill:enable='between(t,0,20)',drawtext=fontfile=/home/blk161/DVD/bin/HanyiSentyPailouArch.ttf:text='年 轻 人 谈 恋 爱':fontcolor=white:fontsize=24:x=(w-tw)/2:y=(h/PHI)+th/2:enable='between(t,0,20)'" EugeneOnegin_Tchaikovsky_chapter_05NHD_text.mp4
 #ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -ss 3 -i input.mp4 -t 3:42 -vf "fps=10,format=yuv420p,drawbox=y=ih/PHI:color=black@0.2:width=iw:height=48:t=fill:enable='between(t,0,20)',drawtext=fontfile=/home/blk161/DVD/bin/HanyiSentyPailouArch.ttf:text='A':fontcolor=white:fontsize=28:x=(w-tw)/2:y=(h/PHI)+th/2:enable='between(t,0,20)',drawtext=fontfile=/home/blk161/DVD/bin/HanyiSentyPailouArch.ttf:text='B':fontcolor=white:fontsize=24:x=(w-tw-th/5):y=th/4:enable='between(t,0,20)'" -s nhd -preset veryslow -crf 29 -x264-params ref=4 -ac 2 -acodec libfdk_aac -vol 128 -movflags +faststart output.mp4
@@ -281,4 +285,4 @@ OR
 2 ffmpeg -i a.mp4 -vf ass=mysubtitle.ass  mysubtitledmovie1.mp4
 ffmpeg -i A.mp4 -vf "subtitles=B.srt:force_style='Alignment=6,Fontsize=12,outline=0'" C.mp4 
 
-#ffmpeg -ss 15  -i input.mp4 -filter_complex "[0:v]setpts=1/1.1*PTS[v];[0:a]atempo=1.1[a]" -map "[v]" -map "[a]" output.mkv # x1.1 speed
+#ffmpeg -ss 0 -i input.mp4 -filter_complex "[0:v]setpts=1/1.1*PTS[v];[0:a]atempo=1.1[a]" -map "[v]" -map "[a]" output.mp4 # x1.1 speed
