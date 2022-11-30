@@ -72,6 +72,8 @@ ffmpeg -i chapter_14.mp4 -c:v copy -ac 1 -ab 64k chapter_22_1.mp4 # make video 1
 ffmpeg -i 201702161314CourtEnquire.mp3 -qscale 0 -acodec adpcm_ima_wav 201702161314CourtEnquire.wav # adpcm_ima_wav format
 ffmpeg -f concat -i input.txt -codec copy output.mp4 # concat two video "$ cat mylist.txt \n file '/path/to/file1' \n file '/path/to/file2' \n file '/path/to/file3'"
 ffmpeg -f concat -safe 0 -i /tmp/txt.txt -codec copy aaa.mp4 unsafe file name
+ffmpeg -i "concat:1.mp3|2.mp3" -acodec copy output.mp3
+
 
 mkisofs -V "PianoCD" -J -joliet-long -r -o PianoCD.iso PianoCD/  # make an iso file to burn
 
