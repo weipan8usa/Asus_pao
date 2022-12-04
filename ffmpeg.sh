@@ -291,3 +291,5 @@ OR
 ffmpeg -i A.mp4 -vf "subtitles=B.srt:force_style='Alignment=6,Fontsize=12,outline=0'" C.mp4 
 
 #ffmpeg -ss 0 -i input.mp4 -filter_complex "[0:v]setpts=1/1.1*PTS[v];[0:a]atempo=1.1[a]" -map "[v]" -map "[a]" output.mp4 # x1.1 speed
+
+ffmpeg -i IMG_1808.MOV -vf "transpose=2" -crf 15.5 -f matroska  pipe:1  |ffplay -i pipe:0
