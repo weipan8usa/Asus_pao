@@ -291,7 +291,7 @@ ffmpeg -i Why\ Socrates\ Hated\ Democracy-fLJBzhcSWTk.mp4 -vf subtitles='Why Soc
 OR 
 1 ffmpeg -i mysubtitles.srt mysubtitle.ass
 2 ffmpeg -i a.mp4 -vf ass=mysubtitle.ass  mysubtitledmovie1.mp4
-ffmpeg -i A.mp4 -vf "subtitles=B.srt:force_style='Alignment=6,Fontsize=12,outline=0'" C.mp4 
+ffmpeg -i A.mp4 -vf "subtitles=B.srt:force_style='Alignment=6,Fontsize=12,PrimaryColour=&H00ffff&,outline=0'" C.mp4 
 
 #ffmpeg -ss 0 -i input.mp4 -filter_complex "[0:v]setpts=1/1.1*PTS[v];[0:a]atempo=1.1[a]" -map "[v]" -map "[a]" output.mp4 # x1.1 speed
 
