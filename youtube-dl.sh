@@ -12,3 +12,6 @@ $ cd youtube-dl
 $ python setup.py build
 $ sudo python setup.py install
 ===============================================
+
+
+make DESTDIR=/tmp/stage install
