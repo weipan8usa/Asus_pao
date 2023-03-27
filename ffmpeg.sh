@@ -57,6 +57,7 @@ ffmpeg -i kkkkkkk.avi -codec:v copy -bsf:v mjpeg2jpeg output_%03d.jpg # dismenta
 #ffmpeg -i FigaroNetrebko_r24_hd720.mkv -map_chapters -1 -map 0:v -c copy -map 0:a -c copy -map 0:s -c copy  FigaroNetrebko_r24_hd720-1.mkv # copy all except charpters
 
 ffplay -vf "crop=in_w/3:in_h:in_w/3:in_h" VID_20161218_171215.mp4
+ffmpeg -i Cover.jpg -vf "crop=480:270:0:45" Cover1.jpg #crop 480x360 to 480x270
 ffmpeg -i VID_20161218_171215.mp4 -vf "crop=in_w:in_h/3:in_w:in_h/3" VID_20161218_171215_normal.mp4
 ffmpeg -i title00.mkv -vf "crop=in_w*3/4:in_h:in_w/8:in_h,yadif"  -c:a copy KarajanMozartDvorak.mkv # Crop from 16:9 to 4:3 + progressive
 ffplay -vf "crop=640:360:0:120" EntfuhrungAusDemSerail_Mozart_chapter_24NHD.mp4 #cut into 16x9 from 4x3 align on bottom
