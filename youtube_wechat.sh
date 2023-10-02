@@ -1,0 +1,5 @@
+#Baud=600k; ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -ss 0 -i Original.mp4  -vf "drawtext=fontfile=/home/blk161/DVD/bin/simhei.ttf:text='':fontcolor=white:fontsize=36:x=(w-tw-th/5):y=th/4:enable='between(t,0,4)'" -map 0:0 -c:v libx264 -b:v $Baud -s nhd -r 30 -map 0:1 -c:a aac -vol 256  Sync.mp4
+#
+#baud=600k;ffmpeg -loop 1 -i Cover1.jpg -i Sync.mp4 -t 2 -vf "drawbox=y=ih/PHI:color=black@0.0:width=iw:height=70:t=fill:enable='between(t,0,5)',drawtext=fontfile=/home/blk161/DVD/bin/simhei.ttf:text='':fontcolor=pink:fontsize=45:x=(w-tw)/2:y=(h/PHI)+th/2-10:enable='between(t,0,5)',drawtext=fontfile=/home/blk161/DVD/bin/simhei.ttf:text='':fontcolor=white:boxcolor=gray:box=1:fontsize=70:x=(w-tw-th/5):y=th/4:enable='between(t,0,5)',drawtext=fontfile=/home/blk161/DVD/bin/simhei.ttf:text='':fontcolor=white:box=1:boxcolor=gray:fontsize=34:x=(th/5):y=(h-th-th/4):enable='between(t,0,5)'" -map 0:0 -c:v libx264 -s nhd -b:v $baud -r 30 -map 1:1 -c:a aac -vol 0 -shortest Cover.mp4
+#
+#rate=600k;ffmpeg -f concat -safe 0 -i file -b:v $rate final.mp4
