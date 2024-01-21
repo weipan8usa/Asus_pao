@@ -74,6 +74,7 @@ ffmpeg -i 201702161314CourtEnquire.mp3 -qscale 0 -acodec adpcm_ima_wav 201702161
 ffmpeg -f concat -i input.txt -codec copy output.mp4 # concat two video "$ cat mylist.txt \n file '/path/to/file1' \n file '/path/to/file2' \n file '/path/to/file3'"
 ffmpeg -f concat -safe 0 -i /tmp/txt.txt -codec copy aaa.mp4 unsafe file name
 ffmpeg -i "concat:1.mp3|2.mp3" -acodec copy output.mp3
+ffmpeg -i C-1.mp4 -i C-2.mp4 -filter_complex "[0:v] [0:a] [1:v] [1:a] concat=n=2:v=1:a=1 [v] [a]" -map [v] -map [a] C.mp4
 
 
 mkisofs -V "PianoCD" -J -joliet-long -r -o PianoCD.iso PianoCD/  # make an iso file to burn
@@ -305,3 +306,7 @@ ffmpeg -i A.mp4 -vf "subtitles=B.srt:force_style='Alignment=6,Fontsize=12,Primar
 #ffmpeg -ss 0 -i input.mp4 -filter_complex "[0:v]setpts=1/1.1*PTS[v];[0:a]atempo=1.1[a]" -map "[v]" -map "[a]" output.mp4 # x1.1 speed
 
 ffmpeg -i IMG_1808.MOV -vf "transpose=2" -crf 15.5 -f matroska  pipe:1  |ffplay -i pipe:0
+
+ffprobe -v error -print_format json -show_entries stream=bit_rate  Original.mp4
+
+#ffmpeg -analyzeduration 2147483647 -probesize 2147483647 -ss 10:15  -i Original.mp4 -ss 10:15 -i Original.m4a -vf "drawtext=fontfile=/home/blk161/DVD/bin/simhei.ttf:text='':fontcolor=white:fontsize=36:x=(w-tw-th/5):y=th/4:enable='between(t,0,4)'" -map 0 -c:v libx264 -b:v 600k -s hd720  -r 25 -map 1 -c:a aac -b:a 128k -vol 256  Sync3of3.mp4
